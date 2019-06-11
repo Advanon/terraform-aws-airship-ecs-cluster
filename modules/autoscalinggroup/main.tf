@@ -162,7 +162,7 @@ resource "aws_autoscaling_schedule" "evening_shutdown" {
   max_size               = 0
   desired_capacity       = 0
   recurrence             = "${lookup(var.cluster_properties, "asg_schedule_startup_recurrence")}"
-  autoscaling_group_name = "${lookup(var.cluster_properties, "asg_schedule_shutdown_recurrence")}"
+  autoscaling_group_name = "${aws_autoscaling_group.this.name}"
 }
 
 resource "aws_autoscaling_schedule" "morning_startup" {
