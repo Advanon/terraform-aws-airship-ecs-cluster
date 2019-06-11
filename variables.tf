@@ -59,18 +59,21 @@ variable "default_cluster_properties" {
   type = "map"
 
   default = {
-    create                 = false
-    ec2_key_name           = ""
-    ec2_instance_type      = "t2.small"
-    ec2_asg_min            = 0
-    ec2_asg_max            = 0
-    ec2_disk_size          = 50
-    ec2_disk_type          = "gp2"
-    ec2_disk_encryption    = "false"
-    ec2_custom_userdata    = ""
-    block_metadata_service = false
-    efs_enabled            = "0"
-    efs_id                 = ""
+    create                           = false
+    ec2_key_name                     = ""
+    ec2_instance_type                = "t2.small"
+    ec2_asg_min                      = 0
+    ec2_asg_max                      = 0
+    ec2_disk_size                    = 50
+    ec2_disk_type                    = "gp2"
+    ec2_disk_encryption              = "false"
+    ec2_custom_userdata              = ""
+    block_metadata_service           = false
+    efs_enabled                      = "0"
+    efs_id                           = ""
+    asg_schedule_enabled             = "1"
+    asg_schedule_shutdown_recurrence = "00 21 * * MON-FRI"
+    asg_schedule_startup_recurrence  = "00 07 * * MON-FRI"
 
     ## Because the autoscaling group automatically selects spot instances at the lowest price to create the cluster
     ## Put several types of spot instance types here
